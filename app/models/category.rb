@@ -1,4 +1,5 @@
 class Category < ApplicationRecord
-  validates :title, :url, prescense: true
+  validates_presence_of :title, :url
+  has_many :posts
 
 end
