@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsApp</title>
+    <title> <%= content_for?(:page_title) ? yield(:page_title) : "Ruby on Rails" %> | RailsApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,12 +10,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
   <body>
     <div class="container">
       <div class="row">
+        <div class="col">
+          <%= render partial: "layouts/menu" %>
+        </div>
+      </div>
+      <div class="row">
         <div class="class">
           <%= yield %>
-
         </div>
       </div>
     </div>

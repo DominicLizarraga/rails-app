@@ -1,7 +1,8 @@
-<h1>hello world</h1>
+<% content_for :page_title, "Home" %>
+
+<h1>Latest posts</h1>
 
 
 <% @posts.each do |post| %>
-  <h3> <%= link_to post.title, post_path(post) %> </h3>
-  <p> <%= post.summary %> </p>
+  <%= render partial: "posts/post", locals: { post: post } %>
 <% end %>
