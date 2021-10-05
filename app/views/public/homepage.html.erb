@@ -1,8 +1,14 @@
 <% content_for :page_title, "Home" %>
 
-<h1>Latest posts</h1>
-
-
-<% @posts.each do |post| %>
-  <%= render partial: "posts/post", locals: { post: post } %>
-<% end %>
+<div class="row">
+  <div class="col-8">
+    <p class="h4">Latest posts</p>
+    <% @posts.each do |post| %>
+      <%= render partial: "posts/post", locals: { post: post } %>
+    <% end %>
+  </div>
+  <div class="col-4">
+    <p class="h4">About</p>
+    <p>Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Deleniti error veniam, ducimus laboriosam aut repellendus? A, laboriosam qui doloribus iusto exercitationem tenetur esse id aliquam incidunt inventore labore omnis, quaerat. </p>
+  </div>
+</div>
