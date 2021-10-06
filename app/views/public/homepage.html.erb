@@ -12,5 +12,12 @@
   <div class="col-4">
     <p class="h4">About</p>
     <p>Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Deleniti error veniam, ducimus laboriosam aut repellendus? A, laboriosam qui doloribus iusto exercitationem tenetur esse id aliquam incidunt inventore labore omnis, quaerat. </p>
+
+    <p class="h4">Categories</p>
+
+      <% @categories.each do |category| %>
+        <p><%= category.title %> - <%= category.total_count %></p>
+      <% end %>
+
   </div>
 </div>
