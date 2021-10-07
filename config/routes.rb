@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get "about", to: "public#about", as: :about
   get "blog", to: "public#blog", as: :blog
   get "contact", to: "public#contact", as: :contact
+  post "post/view", to: "posts#save_post_view", as: :post_view
 
 end

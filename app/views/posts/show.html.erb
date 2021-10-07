@@ -2,8 +2,9 @@
   <h1><%= @post.title %></h1>
 
 <p>
-  <strong>Summary:</strong>
-  <%= simple_format @post.summary %>
+  <small>
+    <%= post_meta @post %>
+  </small>
 </p>
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+
+<%= render partial: "posts/view_form", locals: { post: @post } %>

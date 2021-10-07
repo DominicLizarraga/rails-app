@@ -12,7 +12,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 require("bootstrap/dist/js/bootstrap")
-
+require("../includes/posts")
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
