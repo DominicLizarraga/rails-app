@@ -3,6 +3,8 @@ class Post < ApplicationRecord
   validates :body, length: { minimum: 10 }
   validates :active, inclusion: [true, false]
   belongs_to :category
+  belongs_to :account
+
 
   def details
     "This post was created at #{ created_at.strftime("%d %M %Y") }"

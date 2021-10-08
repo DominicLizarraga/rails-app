@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authenticate_account!, except: [:show]
   before_action :set_post, only: %i[ show edit update destroy save_post_view ]
-
+  before_action :can_modify_post, only: [:edit, :update, :destroy]
   # GET /posts or /posts.json
   def index
     @posts = Post.all
@@ -13,6 +14,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+
   end
 
   # GET /posts/1/edit
@@ -22,7 +24,7 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)
-
+    @post.account_id = current_account.id
     if @post.save
       redirect_to @post, notice: "Post was successfully created."
     else
@@ -54,6 +56,10 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def can_modify_post
+      redirect_back(fallback_location: root_path) and return unless @post.account_id == current_account.id
     end
 
     # Only allow a list of trusted parameters through.
